@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Workout #<%= @the_workout.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/workouts">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_workout/<%= @the_workout.id %>">
+          Delete workout
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Exercise
+      </dt>
+      <dd>
+        <%= @the_workout.exercise_id %>
+      </dd>
+
+      <dt>
+        Coaches comments
+      </dt>
+      <dd>
+        <%= @the_workout.coaches_comments %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_workout.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_workout.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit workout
+    </h2>
+
+    <form action="/modify_workout/<%= @the_workout.id %>"  method="post" >
+      <div>
+        <label for="exercise_id_box">
+          Exercise
+        </label>
+
+        <input type="text" id="exercise_id_box" name="query_exercise_id" value="<%= @the_workout.exercise_id %>">
+      </div>
+
+      <div>
+        <label for="coaches_comments_box">
+          Coaches comments
+        </label>
+
+        <input type="text" id="coaches_comments_box" name="query_coaches_comments" value="<%= @the_workout.coaches_comments %>">
+      </div>
+
+      <button>
+        Update workout
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
